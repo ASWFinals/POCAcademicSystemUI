@@ -39,7 +39,8 @@ namespace POCAcademicSystemUI
                 "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                 "~/Content/bootstrap.css",
+                 "~/Content/bootstrap.mim.css",
+                 "~/Content/bootstrap.cerulean.mim.css",
                  "~/Content/Site.css"));
         }
     }
