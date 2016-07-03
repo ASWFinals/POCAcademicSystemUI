@@ -24,7 +24,7 @@ namespace POCAcademicSystemUI.Providers
             //TODO: implement dispose
         }
 
-        public async Task<HttpResponseMessage> Request(string stringUri, HttpMethod method, string content = null)
+        public HttpResponseMessage Request(string stringUri, HttpMethod method, string content = null)
         {
             HttpResponseMessage response;
 
@@ -44,7 +44,7 @@ namespace POCAcademicSystemUI.Providers
 
             using (var client = new HttpClient() {Timeout = TimeSpan.FromSeconds(300)})
             {
-                response = await client.SendAsync(request);
+                response = client.SendAsync(request).Result;
             }
 
             return response;

@@ -20,13 +20,34 @@ namespace POCAcademicSystemUI.Controllers
         }
 
         // GET: Faculdade
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            var response = _httpClient.Request("/enrollment", HttpMethod.Get);
+            //var result = _httpClient.Request("/enrollment/1", HttpMethod.Get);
+            using (var client = _httpClient)
+            {
+                var result = client.Request("/enrollment/1", HttpMethod.Get);
+                var content = result.Content.ReadAsAsync<Enrollment>().Result;
+            }
+                
 
-            //TODO: Try to deserialize object
 
-            //List<Enrollment> enrollments = await response.Result.Content.ReadAsAsync<List<Enrollment>>();
+            using (var client = _httpClient)
+            {
+                var result =  client.Request("/student",HttpMethod.Get);
+                var content =  result.Content.ReadAsAsync<List<Student>>().Result;
+            }
+
+            using (var client = _httpClient)
+            {
+                var result = client.Request("/enrollment", HttpMethod.Get);
+                var content =  result.Content.ReadAsAsync<List<Enrollment>>().Result;
+            }
+
+            using (var client = _httpClient)
+            {
+                var result = client.Request("/course", HttpMethod.Get);
+                var content =  result.Content.ReadAsAsync<List<Course>>().Result;
+            }
 
             return View();
         }
