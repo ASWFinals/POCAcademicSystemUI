@@ -1238,6 +1238,7 @@
     <Content Include="Scripts\jquery-2.1.3.min.map" />
     <Content Include="Views\Shared\_Faculdade.cshtml" />
     <Content Include="Views\Faculdade\ListGrades.cshtml" />
+    <Content Include="Views\Faculdade\ListCourses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

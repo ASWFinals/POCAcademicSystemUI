@@ -36,15 +36,6 @@ namespace POCAcademicSystemUI.Controllers
             //    var result =  client.Request("/student",HttpMethod.Get);
             //    var content =  result.Content.ReadAsAsync<List<Student>>().Result;
             //}
-
-            
-
-            //using (var client = _httpClient)
-            //{
-            //    var result = client.Request("/course", HttpMethod.Get);
-            //    var content =  result.Content.ReadAsAsync<List<Course>>().Result;
-            //}
-
             return View();
         }
 
@@ -54,6 +45,19 @@ namespace POCAcademicSystemUI.Controllers
             {
                 var result = client.Request("/enrollment", HttpMethod.Get);
                 var content = result.Content.ReadAsAsync<List<Enrollment>>().Result;
+
+                return View(content);
+            }
+
+            return View();
+        }
+
+        public ActionResult ListCourses()
+        {
+            using (var client = _httpClient)
+            {
+                var result = client.Request("/course", HttpMethod.Get);
+                var content = result.Content.ReadAsAsync<List<Course>>().Result;
 
                 return View(content);
             }
