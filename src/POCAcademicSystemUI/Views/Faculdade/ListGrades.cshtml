@@ -1,4 +1,4 @@
-﻿@model IEnumerable<POCAcademicSystemUI.Models.Contract.Enrollment>
+﻿@model IEnumerable<POCAcademicSystemUI.Models.EnrollmentDetails>
 
 @{
     ViewBag.Title = "ListGrades";
@@ -24,27 +24,35 @@
         <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CourseId)
+                @Html.DisplayNameFor(model => model.Student.FullName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StudentId)
+                @Html.DisplayNameFor(model => model.Course.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Grade)
+                @Html.DisplayNameFor(model => model.Enrollment.Grade)
             </th>
         </tr>
 
     @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CourseId)
+                @Html.DisplayFor(modelItem => item.Student.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StudentId)
+                @Html.DisplayFor(modelItem => item.Course.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Grade)
+                @if (item.Enrollment.Grade != null)
+                {
+                    @Html.DisplayFor(modelItem => item.Enrollment.Grade)
+                }
+                else
+                {
+                    <span>n/a</span>
+                }
             </td>
+
         </tr>
     }
 

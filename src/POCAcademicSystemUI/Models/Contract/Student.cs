@@ -24,6 +24,7 @@ namespace POCAcademicSystemUI.Models.Contract
 
         public DateTime? EnrollmentDate { get; set; }
 
+        public string FullName { get { return string.Join(" ", FirstName, LastName); } }
         public IEnumerable<Enrollment> Enrollments { get; set; }
 
     }

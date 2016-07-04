@@ -19,6 +19,7 @@ namespace POCAcademicSystemUI.Models.Contract
         public byte Credits { get; set; }
 
         public string InstructorName { get; set; }
+               
 
         public IEnumerable<Enrollment> Enrollments { get; set; }
     }
