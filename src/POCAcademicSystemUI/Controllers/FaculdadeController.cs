@@ -54,8 +54,6 @@ namespace POCAcademicSystemUI.Controllers
                 enrollments = result.Content.ReadAsAsync<List<Enrollment>>().Result;
             }
 
-
-
             using (var client = _httpClient)
             {
                 var result = client.Request("/student", HttpMethod.Get);
