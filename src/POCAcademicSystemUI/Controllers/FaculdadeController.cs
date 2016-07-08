@@ -17,7 +17,7 @@ namespace POCAcademicSystemUI.Controllers
 
         public FaculdadeController()
         {
-            _httpClient = new HttpRequesterProvider("http://apipocacademic.azurewebsites.net/api", "application/json");
+            _httpClient = new HttpRequesterProvider("http://apipocacademic-staging.azurewebsites.net/api", "application/json");            
         }
 
         // GET: Faculdade

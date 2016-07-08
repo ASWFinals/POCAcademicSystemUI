@@ -41,7 +41,8 @@ namespace POCAcademicSystemUI.Providers
             }
 
             request.Method = method;
-
+            request.Headers.Authorization = new AuthenticationHeaderValue("Basic", "cG9jdXNlcnVpOnBvY3B3ZHVp");
+            
             using (var client = new HttpClient() {Timeout = TimeSpan.FromSeconds(300)})
             {
                 response = client.SendAsync(request).Result;
